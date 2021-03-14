@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./3d.css">
+    <title>照片墙</title>
+</head>
+
+<body>
+    <div id='perspective'>
+        <div id="wrap" class="content">
+            <img class="pic1" src="../img/0.jpg" />
+            <img class="pic2" src="../img/1.jpg" />
+            <img class="pic3" src="../img/11690.jpg" />
+            <img class="pic4" src="../img/bleach-002.jpg" />
+            <img class="pic5" src="../img/timg.jpg" />
+            <img class="pic6" src="../img/timgCSNB1YB4.jpg" />
+            <img class="pic7" src="../img/t.jpg" />
+            <img class="pic8" src="../img/timg (1).jpg" />
+            <img class="pic9" src="../img/timg (2).jpg" />
+            <img class="pic10" src="../img/timg (3).jpg" />
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var oWrap = document.getElementById("wrap");
+        var oImgs = oWrap.getElementsByTagName('img');
+        var deg = 360 / (oImgs.length);
+        var roX = -10,
+            roY = 0;
+        var nowX, nowY, lastX, lastY, minusX, minusY, timer = null;
+
+        for (var i = 0; i <= oImgs.length; i++) {
+            oImgs[i].style.transform = 'rotateY(' + i * deg + 'deg) translateZ(400px)';
+            oImg[i].style.transition = 'all 1s ' + (oImg.length - i - 1) * 0.1 + 's';
+            oImg[i].ondragstart = function() {
+                return false;
+            }
+        }
+
+
+
+        document.onmousedown = function(ev) {
+            clearInterval(timer);
+            ev = ev || window.event;
+            //当前鼠标距离页面左边距离
+            lastX = ev.clientX;
+            //当前鼠标距离页面边距离
+            lastY = ev.clientY;
+            //鼠标按下了
+            this.onmousemove = function(ev) {
+                e = e || window.event;
+                nowX = ev.clientX;
+                nowY = ev.clientY;
+                //x方向上的差值
+                minusX = nowX - lastX;
+                minusY = nowY - lastY;
+                //X轴的旋转角度(乘0.1是防止旋转过快)
+                roX -= minusY * 0.1;
+                roY += minusX * 0.1;
+                oWrap.style.transform = 'perspective(800px) rotateX(' + roX + 'deg) rotateY(' + roY + 'deg)';
+                lastX = ev.clientX;
+                lastY = ev.clientY;
+            }
+
+            this.onmouseup = function() {
+                this.onmousemove = null;
+                timer = setInterval(function() {
+                    minusX *= 0.95;
+                    minusY *= 0.95;
+                    //当它小到0.1时停止计时器
+                    if (Math.abs(xN) < 0.1 && Math.abs(yN) < 0.1) { //Math.abs()是返回绝对值
+                        clearInterval(time);
+                    }
+                    roY += minusX * 0.2;
+                    roX -= minusY * 0.2;
+                    oWrap.style.transform = 'perspective(800px) rotateX(' + roX + 'deg) rotateY(' + roY + 'deg)';
+                }, 30)
+            }
+        }
+    </script>
+</body>
+
+</html>

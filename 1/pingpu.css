@@ -1,0 +1,84 @@
+body {
+    background: url(../img/bg1.jpg) no-repeat top center fixed;
+    background-size: 100% auto;
+}
+
+.content {
+    width: 900px;
+    height: 1000px;
+    overflow: hidden;
+    margin: 100px auto;
+    position: relative;
+}
+
+img {
+    z-index: 1;
+    width: 20%;
+    height: auto;
+    position: absolute;
+    padding: 10px 10px 15px 10px;
+    background: #ffffff;
+    border: 1px solid #CCCCCC;
+    /* 动画的时间 */
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+img:hover {
+    z-index: 2;
+    transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    box-shadow: -10px 10px 20px #000000;
+    -moz-box-shadow: -10px 10px 20px #000000;
+    -webkit-box-shadow: -10px 10px 20px #000000;
+}
+
+.pic1 {
+    left: 100px;
+    top: 50px;
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+}
+
+.pic2 {
+    left: 280px;
+    top: 60px;
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+
+.pic3 {
+    left: 150px;
+    top: 60px;
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    transform: rotate(20deg);
+}
+
+.pic4 {
+    left: 200px;
+    top: 60px;
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+}
+
+.pic5 {
+    left: 340px;
+    top: 60px;
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    transform: rotate(20deg);
+}
+
+.pic6 {
+    left: 400px;
+    top: 100px;
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+}
